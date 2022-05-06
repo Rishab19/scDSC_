@@ -88,22 +88,22 @@ def pretrain_ae(model, dataset, y):
         # Generate a pre-trained model
         torch.save(model.state_dict(), File[0])
 
-# File = [Pre-training file, gene_expresion data file, labels file]
-File = ['model/mtab.pkl', 'data/mtab.txt', 'data/mtab_label.txt']
-# Para = [batch_size, lr, epoch]
-Para = [1024, 1e-3, 200]
-# model_para = [n_enc_1(n_dec_3), n_enc_2(n_dec_2), n_enc_3(n_dec_1)]
-model_para = [500, 500, 2000]
-# Cluster_para = [n_cluster, n_init, n_input, n_z]
-Cluster_para = [5, 20, 4889, 10]
+# # File = [Pre-training file, gene_expresion data file, labels file]
+# File = ['model/mtab.pkl', 'data/mtab.txt', 'data/mtab_label.txt']
+# # Para = [batch_size, lr, epoch]
+# Para = [1024, 1e-3, 200]
+# # model_para = [n_enc_1(n_dec_3), n_enc_2(n_dec_2), n_enc_3(n_dec_1)]
+# model_para = [500, 500, 2000]
+# # Cluster_para = [n_cluster, n_init, n_input, n_z]
+# Cluster_para = [5, 20, 4889, 10]
 
-model = AE(
-            n_enc_1=model_para[0], n_enc_2=model_para[1], n_enc_3=model_para[2],
-            n_dec_1=model_para[2], n_dec_2=model_para[1], n_dec_3=model_para[0], n_input=Cluster_para[2], n_z=Cluster_para[3], ).cuda()
+# model = AE(
+#             n_enc_1=model_para[0], n_enc_2=model_para[1], n_enc_3=model_para[2],
+#             n_dec_1=model_para[2], n_dec_2=model_para[1], n_dec_3=model_para[0], n_input=Cluster_para[2], n_z=Cluster_para[3], ).cuda()
 
 
-x = np.loadtxt(File[1], dtype=float)
-y = np.loadtxt(File[2], dtype=int)
+# x = np.loadtxt(File[1], dtype=float)
+# y = np.loadtxt(File[2], dtype=int)
 
-dataset = LoadDataset(x)
-pretrain_ae(model, dataset, y)
+# dataset = LoadDataset(x)
+# pretrain_ae(model, dataset, y)
