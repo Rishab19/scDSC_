@@ -51,13 +51,13 @@ def construct_graph(features, label, method):
     f.close()
     print('error rate: {}'.format(counter / (num * topk)))
 
-# File = [Pre-training file,]
-File = ['data/mtab.txt', 'data/mtab_label.txt']
-# Para = [batch_size, lr, epoch, n_cluster, n_init]
-Para = [1024, 1e-3, 200, 5, 20]
-# method = ['heat', 'cos', 'ncos' ,'p']
-method = ['heat', 'cos', 'ncos', 'p']
+# # File = [Pre-training file,]
+# File = ['data/mtab.txt', 'data/mtab_label.txt']
+# # Para = [batch_size, lr, epoch, n_cluster, n_init]
+# Para = [1024, 1e-3, 200, 5, 20]
+# # method = ['heat', 'cos', 'ncos' ,'p']
+# method = ['heat', 'cos', 'ncos', 'p']
 
-number = np.loadtxt(File[0], dtype=float)
-label = np.loadtxt(File[1], dtype=int)
-construct_graph(number, label, method[3])
+# number = np.loadtxt(File[0], dtype=float)
+# label = np.loadtxt(File[1], dtype=int)
+# construct_graph(number, label, method[3])
