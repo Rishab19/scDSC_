@@ -19,14 +19,15 @@ from torch.utils.data import Dataset
 from torch.optim.optimizer import Optimizer
 
 
-def load_graph(dataset, k):
+def load_graph(dataset,adata, k):
     if k:
         path = 'graph/{}{}_graph.txt'.format(dataset, k)
 
     else:
         path = 'graph/{}_graph.txt'.format(dataset)
 
-    data = np.loadtxt('data/{}.txt'.format(dataset))
+#     data = np.loadtxt('data/{}.txt'.format(dataset))
+    data = adata.X
     n, _ = data.shape
 
     idx = np.array([i for i in range(n)], dtype=np.int32)
