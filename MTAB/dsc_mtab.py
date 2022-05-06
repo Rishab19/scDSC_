@@ -58,7 +58,7 @@ class AE(nn.Module):
 
 class SDCN(nn.Module):
     def __init__(self, n_enc_1, n_enc_2, n_enc_3, n_dec_1, n_dec_2, n_dec_3,
-                 n_input, n_z, n_clusters, v=1):
+                 n_input, n_z, n_clusters,pretrain_path, v=1):
         super(SDCN, self).__init__()
         # AE to obtain internal information
         self.ae = AE(
@@ -73,7 +73,7 @@ class SDCN(nn.Module):
             n_input=n_input,
             n_z=n_z)
 
-        self.ae.load_state_dict(torch.load(args.pretrain_path, map_location='cpu'))
+        self.ae.load_state_dict(torch.load(pretrain_path, map_location='cpu'))
         # GCN for inter information
         self.gnn_1 = GNNLayer(n_input, n_enc_1)
         self.gnn_2 = GNNLayer(n_enc_1, n_enc_2)
